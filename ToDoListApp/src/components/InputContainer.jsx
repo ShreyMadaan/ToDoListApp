@@ -1,9 +1,18 @@
 function InputContainer({inputVal, writeToDo, addTodo}) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    addTodo();
+  }
+
   return (
-    <div className="input-container">
-      <input type="text" value={inputVal} onChange={writeToDo}/>
-      <button onClick={addTodo}>+</button>
-    </div>
+    <form className="input-container" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={inputVal}
+        onChange={writeToDo}
+      />
+      <button type="submit">+</button>
+    </form>
   );
 }
 
